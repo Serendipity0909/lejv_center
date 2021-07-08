@@ -6,7 +6,7 @@
 
     <div class="right-menu">
       <!-- 用户登录信息 -->
-      <span>欢迎{{userInfo.nickname}}进入系统</span>
+      <span>欢迎{{ userInfo.nickname }}进入系统</span>
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
           <img :src="userInfo.icon" class="user-avatar">
@@ -37,19 +37,19 @@
 import { mapGetters } from 'vuex'
 import Breadcrumb from '@/components/Breadcrumb'
 import Hamburger from '@/components/Hamburger'
-import {clearAll,getUserInfo} from "@/utils/myAuth"
+import { clearAll, getUserInfo } from '@/utils/myAuth'
 
 export default {
-
-  data(){
-    let userInfo = getUserInfo();
-    return{
-       userInfo
-    }
-  },
   components: {
     Breadcrumb,
     Hamburger
+  },
+
+  data() {
+    const userInfo = getUserInfo()
+    return {
+      userInfo
+    }
   },
   computed: {
     ...mapGetters([
@@ -62,8 +62,8 @@ export default {
       this.$store.dispatch('app/toggleSideBar')
     },
     async logout() {
-      clearAll();
-      this.$router.push(`/login`);
+      clearAll()
+      this.$router.push(`/login`)
     }
   }
 }

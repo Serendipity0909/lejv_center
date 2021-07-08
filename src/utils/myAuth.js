@@ -1,33 +1,32 @@
-const TOKEN_NAME = 'TOKEN_2102';
-const USER_INFO = "USER_INFO_2102"
-    //储存token 
+const TOKEN_NAME = 'TOKEN_2102'
+const USER_INFO = 'USER_INFO_2102'
+// 储存token
 export function setToken(token) {
-    window.localStorage.setItem(TOKEN_NAME, token);
+  window.localStorage.setItem(TOKEN_NAME, token)
 }
 // 获取token
 export function getToken() {
-    return window.localStorage.getItem(TOKEN_NAME);
+  return window.localStorage.getItem(TOKEN_NAME)
 }
-//删除token
+// 删除token
 export function removeToken() {
-    window.localStorage.removeItem(TOKEN_NAME);
+  window.localStorage.removeItem(TOKEN_NAME)
 }
 
-
-//存储userInfo
+// 存储userInfo
 export function setUserInfo(user) {
-    window.localStorage.setItem(USER_INFO, JSON.stringify(user));
+  window.localStorage.setItem(USER_INFO, JSON.stringify(user))
 }
-//获取userInfo
+// 获取userInfo
 export function getUserInfo() {
-    return JSON.parse(window.localStorage.getItem(USER_INFO));
+  return JSON.parse(window.localStorage.getItem(USER_INFO))
 }
-//删除userInfo
+// 删除userInfo
 export function removeUserInfo() {
-    window.localStorage.removeItem(USER_INFO);
+  window.localStorage.removeItem(USER_INFO)
 }
-//全部清空
+// 全部清空
 export function clearAll() {
-    removeToken();
-    removeUserInfo();
+  removeToken()
+  removeUserInfo()
 }

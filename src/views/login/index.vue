@@ -54,8 +54,8 @@
 
 <script>
 // import { validUsername } from '@/utils/validate'
-import {login} from "@/api/login"
-import {setToken,setUserInfo} from "@/utils/myAuth"
+import { login } from '@/api/login'
+import { setToken, setUserInfo } from '@/utils/myAuth'
 export default {
   name: 'Login',
   data() {
@@ -79,9 +79,9 @@ export default {
         password: '123456'
       },
       loginRules: {
-        //校验规则可以用validator自定义
-        username: [{ required: true, trigger: 'blur', }],
-        password: [{ required: true, trigger: 'blur', validator: validatePassword }]//因为它的密码校验规则是长度大于6,和我们的校验规则一致所以不用管
+        // 校验规则可以用validator自定义
+        username: [{ required: true, trigger: 'blur' }],
+        password: [{ required: true, trigger: 'blur', validator: validatePassword }]// 因为它的密码校验规则是长度大于6,和我们的校验规则一致所以不用管
       },
       loading: false,
       passwordType: 'password',
@@ -118,20 +118,19 @@ export default {
           // }).catch(() => {
           //   this.loading = false
           // })
-          login(this.loginForm).then(res=>{
-            if(res.success){
-                 console.log(res);
-                 //存储用户信息
-                 setUserInfo(res.data.userInfo);
-                 // 存TOKEN
-                setToken(res.data.token)
-                //  跳到首页
-                this.$router.push({path:"/"})
-
-            }else{
-               this.$message.error("账号密码有误,登陆失败!")
+          login(this.loginForm).then(res => {
+            if (res.success) {
+              console.log(res)
+              // 存储用户信息
+              setUserInfo(res.data.userInfo)
+              // 存TOKEN
+              setToken(res.data.token)
+              //  跳到首页
+              this.$router.push({ path: '/' })
+            } else {
+              this.$message.error('账号密码有误,登陆失败!')
             }
-            this.loading=false;
+            this.loading = false
           })
         } else {
           console.log('error submit!!')

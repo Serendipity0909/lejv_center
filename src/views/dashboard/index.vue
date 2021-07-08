@@ -6,7 +6,7 @@
 
 <script>
 // 引入api
-import {baseData} from "@/api/login"
+import { baseData } from '@/api/login'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -16,16 +16,16 @@ export default {
       'name'
     ])
   },
-  created(){
-    this.getData();
+  created() {
+    this.getData()
   },
-  methods:{
-    getData(){
-      baseData().then(res=>{
-          // console.log(res);
-        })
+  methods: {
+    getData() {
+      baseData().then(res => {
+        // console.log(res);
+      })
     }
- 
+
   }
 }
 </script>
